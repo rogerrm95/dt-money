@@ -1,8 +1,16 @@
+import { ThemeProvider } from 'styled-components'
+import { defaultTheme } from './styles/themes/default'
+// Page //
+import { Home } from './pages/Home'
+import { GlobalStyled } from './styles/global'
+
 function App() {
   return (
-    <div className="App">
-      <h1>Carteira Digital</h1>
-    </div>
+    <ThemeProvider theme={defaultTheme}>
+      <GlobalStyled />
+
+      <Home />
+    </ThemeProvider>
   )
 }
 

@@ -8,8 +8,8 @@ export const GlobalStyled = createGlobalStyle`
     }
 
     body {
-        // COR DE FUNDO //
-        // COR DO TEXTO //
+        background: ${(props) => props.theme.colors['gray-900']} ;
+        color: ${(props) => props.theme.colors['gray-400']};
         -webkit-font-smoothing: antialiased;
     }
 
