@@ -27,6 +27,17 @@ export const GlobalStyled = createGlobalStyle`
         border: none;
     }
 
+    input {
+        background: ${(props) => props.theme.colors['gray-900']};
+        color: ${(props) => props.theme.colors['gray-300']};
+        caret-color: ${(props) => props.theme.colors.white};
+        border: none;
+
+        &::placeholder {
+            color: ${(props) => props.theme.colors['gray-400']}; 
+        }
+    }
+
     ul {
         list-style: none;
     }

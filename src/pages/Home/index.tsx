@@ -5,15 +5,21 @@ import { ptBR } from 'date-fns/locale'
 import {
   ArrowCircleDown,
   ArrowCircleUp,
-  Calendar,
   CurrencyDollar,
-  TagSimple,
+  MagnifyingGlass,
 } from 'phosphor-react'
 import LogoDTMoney from '../../assets/logo-dtmoney.png'
 // Components //
 import { Card } from '../../components/Card'
+import { TransactioItem } from '../../components/TransactionItem'
 // Styles //
-import { Container } from './styles'
+import {
+  Container,
+  Pagination,
+  SectionContainer,
+  TableContainer,
+  TableRow,
+} from './styles'
 
 const tempValues = {
   amountToReceveid: Number(17400).toLocaleString('pt-BR', {
@@ -76,39 +82,58 @@ export function Home() {
         </ul>
 
         {/* Lista de Transações */}
-        <section>
+        <SectionContainer>
           <h2>
             Transações <span>4 itens</span>
           </h2>
 
-          {/* <ul>
-            <li>
-              <p>Desenvolvimento de website</p>
-              <strong>R$ 12.000,00</strong>
-              <div>
-                <span>
-                  <TagSimple size={16} /> Venda
-                </span>
-                <span>
-                  <Calendar size={16} /> 13/04/2022
-                </span>
-              </div>
-            </li>
-            
-            <li>
-              <p>Desenvolvimento de website</p>
-              <strong>R$ 12.000,00</strong>
-              <div>
-                <span>
-                  <TagSimple size={16} /> Venda
-                </span>
-                <span>
-                  <Calendar size={16} /> 13/04/2022
-                </span>
-              </div>
-            </li>
-          </ul> */}
-        </section>
+          <div className="search-box">
+            <input type="text" placeholder="Busque uma transação..." />
+            <button>
+              <MagnifyingGlass weight="bold" size={22} />
+              <span>Buscar</span>
+            </button>
+          </div>
+
+          <ul>
+            <TransactioItem typeTransaction="receipt" />
+            <TransactioItem typeTransaction="removal" />
+            <TransactioItem typeTransaction="removal" />
+            <TransactioItem typeTransaction="removal" />
+          </ul>
+
+          <TableContainer>
+            <table>
+              <tbody>
+                <TableRow typeTransaction="removal">
+                  <td>Desenvolvimento Website</td>
+                  <td>R$ 12.000,00</td>
+                  <td>Venda</td>
+                  <td>13/08/2022</td>
+                </TableRow>
+
+                <TableRow typeTransaction="receipt">
+                  <td>Desenvolvimento Website</td>
+                  <td>R$ 16.000,00</td>
+                  <td>Venda</td>
+                  <td>01/08/2022</td>
+                </TableRow>
+                <TableRow typeTransaction="removal">
+                  <td>Desenvolvimento Website</td>
+                  <td>R$ 11.000,00</td>
+                  <td>Venda</td>
+                  <td>01/05/2022</td>
+                </TableRow>
+                <TableRow typeTransaction="receipt">
+                  <td>Desenvolvimento Website</td>
+                  <td>R$ 1.000,00</td>
+                  <td>Venda</td>
+                  <td>29/12/2021</td>
+                </TableRow>
+              </tbody>
+            </table>
+          </TableContainer>
+        </SectionContainer>
       </main>
     </Container>
   )
