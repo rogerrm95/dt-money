@@ -20,8 +20,9 @@ export const Container = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin: auto;
+
     padding: 3.5rem 1.5rem;
+    margin: auto;
 
     img {
       object-fit: contain;
@@ -50,8 +51,9 @@ export const Container = styled.div`
   }
 
   main {
+    width: 100%;
+    margin: -2.5rem auto;
     padding: 0rem 1.5rem;
-    margin: -2.5rem 0;
 
     display: flex;
     flex-direction: column;
@@ -69,7 +71,7 @@ export const Container = styled.div`
   // Breakpoint //
   @media (min-width: 1144px) {
     .header-box {
-      padding: 2.5rem 0;
+      padding: 2.5rem 1.5rem;
     }
   }
 `

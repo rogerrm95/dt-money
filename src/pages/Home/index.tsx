@@ -30,13 +30,13 @@ const tempValues = {
   type: 'removal',
 }
 
-const total = Number(17400 - 5000).toLocaleString('pt-BR', {
+const total = Number(1400 - 5000).toLocaleString('pt-BR', {
   currency: 'BRL',
   style: 'currency',
   minimumFractionDigits: 2,
 })
 
-const isPositive = 5000 - 5500 > 0
+const isPositive = 1400 - 5000 > 0
 
 export function Home() {
   return (
