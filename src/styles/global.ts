@@ -34,7 +34,7 @@ export const GlobalStyled = createGlobalStyle`
         border: none;
 
         &::placeholder {
-            color: ${(props) => props.theme.colors['gray-400']}; 
+            color: ${(props) => props.theme.colors['gray-500']}; 
         }
     }
 

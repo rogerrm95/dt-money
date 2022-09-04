@@ -94,9 +94,25 @@ export const Container = styled.div`
   }
 
   // Breakpoint //
+  // Desktop //
   @media (min-width: 1144px) {
     .header-box {
       padding: 2.5rem 1.5rem;
+    }
+  }
+
+  // Breakpoint //
+  // Mini mobile //
+  @media (max-width: 400px) {
+    .header-box {
+      img {
+        width: 100px;
+      }
+
+      button {
+        font-size: 0.75rem;
+        padding: 0.5rem 1rem;
+      }
     }
   }
 `

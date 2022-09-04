@@ -13,14 +13,9 @@ import LogoDTMoney from '../../assets/logo-dtmoney.png'
 import { Card } from '../../components/Card'
 import { TransactioItem } from '../../components/TransactionItem'
 // Styles //
-import {
-  Container,
-  Pagination,
-  SectionContainer,
-  TableContainer,
-  TableRow,
-} from './styles'
+import { Container, SectionContainer, TableContainer, TableRow } from './styles'
 
+// TEMPORÁRIO //
 const tempValues = {
   amountToReceveid: Number(17400).toLocaleString('pt-BR', {
     currency: 'BRL',
@@ -96,10 +91,12 @@ export function Home() {
           </div>
 
           <ul>
-            <TransactioItem typeTransaction="receipt" />
-            <TransactioItem typeTransaction="removal" />
-            <TransactioItem typeTransaction="removal" />
-            <TransactioItem typeTransaction="removal" />
+            <TransactioItem
+              name="Salário CLT"
+              price={2500}
+              category="Venda"
+              typeTransaction="receipt"
+            />
           </ul>
 
           <TableContainer>
