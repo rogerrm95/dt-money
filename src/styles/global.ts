@@ -9,14 +9,12 @@ export const GlobalStyled = createGlobalStyle`
 
     body {
         background: ${(props) => props.theme.colors['gray-800']} ;
-        color: ${(props) => props.theme.colors['gray-400']};
+        color: ${(props) => props.theme.colors['gray-100']};
         -webkit-font-smoothing: antialiased;
     }
 
     body, input, textarea, button {
-        font-family: "Roboto", sans-serif;
-        font-size: 1rem;
-        font-weight: 400;
+        font: 400 1rem "Roboto", sans-serif;
     }
 
     a {
@@ -44,5 +42,6 @@ export const GlobalStyled = createGlobalStyle`
 
     :focus {
         outline: 0;
+        box-shadow: 0 0 0 2px ${(props) => props.theme.colors['green-500']} ;
     }
 `

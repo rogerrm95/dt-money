@@ -10,7 +10,7 @@ interface TransactionItemProps {
   typeTransaction?: 'receipt' | 'removal' | undefined
 }
 
-export function TransactioItem({ typeTransaction }: TransactionItemProps) {
+export function TransactionItem({ typeTransaction }: TransactionItemProps) {
   return (
     <Container typeTransaction={typeTransaction}>
       <p>
