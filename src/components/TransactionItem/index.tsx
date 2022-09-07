@@ -1,7 +1,7 @@
 // Icons //
 import { CalendarBlank, TagSimple } from 'phosphor-react'
 // Styles //
-import { Container } from './styles'
+import { TransactionContainer } from './styles'
 
 interface TransactionItemProps {
   name: string
@@ -12,7 +12,7 @@ interface TransactionItemProps {
 
 export function TransactionItem({ typeTransaction }: TransactionItemProps) {
   return (
-    <Container typeTransaction={typeTransaction}>
+    <TransactionContainer typeTransaction={typeTransaction}>
       <p>
         Desenvolvimento de website
         <br />
@@ -28,6 +28,6 @@ export function TransactionItem({ typeTransaction }: TransactionItemProps) {
           <CalendarBlank size={16} /> 13/04/2022
         </span>
       </footer>
-    </Container>
+    </TransactionContainer>
   )
 }

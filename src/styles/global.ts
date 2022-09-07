@@ -36,6 +36,14 @@ export const GlobalStyled = createGlobalStyle`
         }
     }
 
+    // Remove o icone (seta) do input tipo númerico //
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
     ul {
         list-style: none;
     }

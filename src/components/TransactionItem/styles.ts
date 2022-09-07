@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-interface TransactionItemProps {
+interface TransactionContainerProps {
   typeTransaction: 'receipt' | 'removal' | undefined
 }
 
@@ -9,7 +9,7 @@ const colorsTypeOfTransation = {
   removal: '#F75A68',
 }
 
-export const Container = styled.li<TransactionItemProps>`
+export const TransactionContainer = styled.li<TransactionContainerProps>`
   display: flex;
   flex-direction: column;
   gap: 0.75rem;

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const HomeContainer = styled.div`
   margin: auto;
 
   display: flex;
@@ -15,7 +15,7 @@ export const Transactions = styled.section`
   width: 100%;
   max-width: 1144px;
   padding: 0 1.5rem;
-  margin: 4rem 0 auto;
+  margin: 4rem auto 0;
 
   h2 {
     display: flex;
@@ -27,63 +27,6 @@ export const Transactions = styled.section`
       margin-left: auto;
       font-size: 1rem;
       color: ${(props) => props.theme.colors['gray-400']};
-    }
-  }
-
-  .search-box {
-    display: flex;
-    gap: 0.5rem;
-
-    input {
-      width: 100%;
-
-      padding: 1rem;
-      height: 3.5rem;
-
-      border-radius: 6px;
-      border: none;
-    }
-
-    button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0.75rem;
-
-      height: 3.5rem;
-      width: 3.5rem;
-      padding: 1rem;
-
-      color: ${(props) => props.theme.colors['green-300']};
-      border: 1px solid ${(props) => props.theme.colors['green-300']};
-      background: transparent;
-
-      font-weight: 700;
-      border-radius: 6px;
-      cursor: pointer;
-
-      transition: background-color 0.2s, color 0.2s;
-
-      span {
-        display: none;
-      }
-
-      &:hover {
-        color: ${(props) => props.theme.colors.white};
-        background: ${(props) => props.theme.colors['green-300']};
-        border: 1px solid transparent;
-      }
-
-      // Exibe o texto do botão //
-      @media (min-width: 900px) {
-        & {
-          width: 147px;
-        }
-
-        span {
-          display: block;
-        }
-      }
     }
   }
 
@@ -108,7 +51,7 @@ const colorsTypeOfTransation = {
   removal: '#F75A68',
 }
 
-export const TableContainer = styled.div`
+export const TransactionsTable = styled.div`
   display: none;
 
   table {

@@ -1,14 +1,18 @@
 // Libs //
 import { format } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
-// Image //
-import { MagnifyingGlass } from 'phosphor-react'
-import { Header } from '../../components/Header'
 // Components //
+import { Header } from '../../components/Header'
+import { SearchForm } from '../../components/SearchForm'
 import { Summary } from '../../components/Summary'
 import { TransactionItem } from '../../components/TransactionItem'
 // Styles //
-import { Container, Transactions, TableContainer, TableRow } from './styles'
+import {
+  HomeContainer,
+  Transactions,
+  TransactionsTable,
+  TableRow,
+} from './styles'
 
 // TEMPORÁRIO //
 // const tempValues = {
@@ -28,7 +32,7 @@ import { Container, Transactions, TableContainer, TableRow } from './styles'
 
 export function Home() {
   return (
-    <Container>
+    <HomeContainer>
       <Header />
       {/* Lista de Transações */}
       <Summary />
@@ -38,13 +42,7 @@ export function Home() {
           Transações <span>4 itens</span>
         </h2>
 
-        <div className="search-box">
-          <input type="text" placeholder="Busque uma transação..." />
-          <button>
-            <MagnifyingGlass weight="bold" size={22} />
-            <span>Buscar</span>
-          </button>
-        </div>
+        <SearchForm />
 
         <ul>
           <TransactionItem
@@ -55,7 +53,7 @@ export function Home() {
           />
         </ul>
 
-        <TableContainer>
+        <TransactionsTable>
           <table>
             <tbody>
               <TableRow variant="removal">
@@ -85,8 +83,8 @@ export function Home() {
               </TableRow>
             </tbody>
           </table>
-        </TableContainer>
+        </TransactionsTable>
       </Transactions>
-    </Container>
+    </HomeContainer>
   )
 }

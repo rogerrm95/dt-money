@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 // Lista dos Cards de transações //
-export const Container = styled.section`
+export const SummaryContainer = styled.section`
   width: 100%;
   max-width: 1144px;
   margin: 0 auto;
