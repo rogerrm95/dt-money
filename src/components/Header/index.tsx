@@ -1,16 +1,26 @@
+// Modal - Dialog //
+// Lib para Acessibilidade //
+import * as Modal from '@radix-ui/react-dialog'
 // Logo //
 import LogoDTMoney from '../../assets/logo-dtmoney.png'
+import { NewTransactionModal } from '../NewTransactionModal'
 // Styles //
-import { Container, TransactionButton } from './styles'
+import { HeaderContainer, TransactionButton } from './styles'
 
 export function Header() {
   return (
-    <Container>
+    <HeaderContainer>
       <div>
         <img src={LogoDTMoney} alt="Logotipo" />
 
-        <TransactionButton>Nova transação</TransactionButton>
+        <Modal.Root>
+          <Modal.Trigger asChild>
+            <TransactionButton>Nova transação</TransactionButton>
+          </Modal.Trigger>
+
+          <NewTransactionModal />
+        </Modal.Root>
       </div>
-    </Container>
+    </HeaderContainer>
   )
 }
