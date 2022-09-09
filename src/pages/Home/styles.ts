@@ -10,7 +10,7 @@ export const HomeContainer = styled.div`
 export const Transactions = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
 
   width: 100%;
   max-width: 1144px;
@@ -77,6 +77,7 @@ interface TableRowProps {
 
 export const TableRow = styled.tr<TableRowProps>`
   background-color: ${(props) => props.theme.colors['gray-700']};
+  color: ${(props) => props.theme.colors['gray-300']};
 
   td {
     padding: 1.25rem 2rem;

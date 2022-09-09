@@ -7,53 +7,30 @@ export const SummaryContainer = styled.section`
   margin: 0 auto;
   padding: 0rem 1.5rem 1rem;
 
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   flex-wrap: nowrap;
   gap: 2rem;
 
   margin-top: -5rem;
-  overflow: auto;
-
-  // VERTICAL SCROLL BAR //
-  /* width */
-  ::-webkit-scrollbar {
-    height: 8px;
-  }
-
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: ${(props) => props.theme.colors['gray-600']};
-    border-radius: 6px;
-  }
-
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: ${(props) => props.theme.colors['green-500']};
-    border-radius: 6px;
-  }
-
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: ${(props) => props.theme.colors['green-300']};
-  }
-
-  /* 
-  svg {
-    color: ${(props) =>
-    props.typeTransaction && colorsTypeOfTransation[props.typeTransaction]};
-  }
-  */
+  overflow-x: auto;
 `
 
 interface SummaryCardProps {
-  variant?: 'green'
+  variant?: 'green' | 'red'
 }
 
+const variantColors = {
+  green: '#00875F',
+  red: '#AB222E',
+} as const
+
 export const SummaryCard = styled.div<SummaryCardProps>`
-  background: ${(props) => props.theme.colors['gray-600']};
+  width: 100%;
+  min-width: 280px;
   border-radius: 6px;
   padding: 2rem;
+
+  background: ${(props) => props.theme.colors['gray-600']};
 
   header {
     display: flex;
@@ -78,9 +55,14 @@ export const SummaryCard = styled.div<SummaryCardProps>`
 
   // Estilização condicional //
   ${(props) =>
-    props.variant === 'green' &&
+    props.variant &&
     css`
-      background: ${props.theme.colors['green-700']};
+      background: ${variantColors[props.variant]};
+      color: ${(props) => props.theme.colors.white};
+
+      span {
+        color: ${(props) => props.theme.colors.white};
+      }
     `}
 
   // Esconde a data da última atualização //

@@ -85,6 +85,10 @@ export const TransactionType = styled(RadioGroup.Root)`
   gap: 1rem;
 
   margin-top: 0.5rem;
+
+  & {
+    box-shadow: none;
+  }
 `
 
 interface TransactionTypeButtonProps {

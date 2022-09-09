@@ -19,7 +19,8 @@ export const TransactionContainer = styled.li<TransactionContainerProps>`
 
   background-color: ${(props) => props.theme.colors['gray-700']};
 
-  p {
+  p,
+  span {
     color: ${(props) => props.theme.colors['gray-300']};
   }
 

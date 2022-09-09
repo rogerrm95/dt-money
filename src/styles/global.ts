@@ -52,4 +52,28 @@ export const GlobalStyled = createGlobalStyle`
         outline: 0;
         box-shadow: 0 0 0 2px ${(props) => props.theme.colors['green-500']} ;
     }
+
+   // SCROLL BAR //
+  /* width */
+  ::-webkit-scrollbar {
+    height: 8px;
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: ${(props) => props.theme.colors['gray-600']};
+    border-radius: 6px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: ${(props) => props.theme.colors['gray-700']};
+    border-radius: 6px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: ${(props) => props.theme.colors['gray-900']};
+  }
 `
