@@ -49,7 +49,12 @@ export const Content = styled(Modal.Content)`
       margin-top: 1rem;
       cursor: pointer;
 
-      &:hover {
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      &:not(:disabled):hover {
         background: ${(props) => props.theme.colors['green-700']};
         transition: background-color 0.2s;
       }
