@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 // Libs //
 import { format } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
@@ -30,57 +31,69 @@ import {
 //   type: 'removal',
 // }
 
+interface Transaction {
+  id: number
+  description: string
+  category: string
+  price: number
+  createdAt: string
+  type: 'receipt' | 'removal'
+}
+
 export function Home() {
+  const [transactions, setTransaction] = useState<Transaction[]>([])
+
+  // GET - all transactions //
+  async function getAllTransactions() {
+    const response = await fetch('http://localhost:3334/transactions')
+    const data = await response.json()
+
+    setTransaction(data)
+  }
+
+  useEffect(() => {
+    getAllTransactions()
+  }, [])
+
   return (
     <HomeContainer>
       <Header />
-      {/* Lista de Transações */}
+      {/* Resumo das transações */}
       <Summary />
 
+      {/* Lista de Transações */}
       <Transactions>
         <h2>
           Transações <span>4 itens</span>
         </h2>
 
         <SearchForm />
-
+        {/* Listagem - Versão Mobile */}
         <ul>
-          <TransactionItem
-            name="Salário CLT"
-            price={2500}
-            category="Venda"
-            typeTransaction="receipt"
-          />
+          {transactions.map((transaction) => (
+            <TransactionItem
+              key={transaction.id}
+              name={transaction.description}
+              price={transaction.price}
+              category={transaction.category}
+              typeTransaction={transaction.type}
+              date={transaction.createdAt}
+            />
+          ))}
         </ul>
 
+        {/* Listagem - Versão Desktop */}
         <TransactionsTable>
           <table>
             <tbody>
-              <TableRow variant="removal">
-                <td>Desenvolvimento Website</td>
-                <td>R$ 12.000,00</td>
-                <td>Venda</td>
-                <td>13/08/2022</td>
-              </TableRow>
-
-              <TableRow variant="receipt">
-                <td>Desenvolvimento Website</td>
-                <td>R$ 16.000,00</td>
-                <td>Venda</td>
-                <td>01/08/2022</td>
-              </TableRow>
-              <TableRow variant="removal">
-                <td>Desenvolvimento Website</td>
-                <td>R$ 11.000,00</td>
-                <td>Venda</td>
-                <td>01/05/2022</td>
-              </TableRow>
-              <TableRow variant="receipt">
-                <td>Desenvolvimento Website</td>
-                <td>R$ 1.000,00</td>
-                <td>Venda</td>
-                <td>29/12/2021</td>
-              </TableRow>
+              {transactions.map((transaction) => (
+                <TableRow key={transaction.id} variant={transaction.type}>
+                  <td>{transaction.description}</td>
+                  <td>R$ {transaction.price}</td>
+                  <td>{transaction.category}</td>
+                  <td>{transaction.createdAt}</td>
+                </TableRow>
+              ))}
             </tbody>
           </table>
         </TransactionsTable>

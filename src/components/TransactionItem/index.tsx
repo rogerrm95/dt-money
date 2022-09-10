@@ -5,27 +5,34 @@ import { TransactionContainer } from './styles'
 
 interface TransactionItemProps {
   name: string
-  price: string | number
+  price: number
   category: string
-  typeTransaction?: 'receipt' | 'removal' | undefined
+  typeTransaction: 'receipt' | 'removal'
+  date: string
 }
 
-export function TransactionItem({ typeTransaction }: TransactionItemProps) {
+export function TransactionItem({
+  name,
+  price,
+  category,
+  typeTransaction,
+  date,
+}: TransactionItemProps) {
   return (
     <TransactionContainer typeTransaction={typeTransaction}>
       <p>
-        Desenvolvimento de website
+        {name}
         <br />
-        <strong>R$ 12.000,00</strong>
+        <strong>R$ {price}</strong>
       </p>
 
       <footer>
         <span>
-          <TagSimple size={16} /> Venda
+          <TagSimple size={16} /> {category}
         </span>
 
         <span>
-          <CalendarBlank size={16} /> 13/04/2022
+          <CalendarBlank size={16} /> {date}
         </span>
       </footer>
     </TransactionContainer>
