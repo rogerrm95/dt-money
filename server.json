@@ -39,6 +39,14 @@
             "category": "Empréstimo",
             "price": 1500,
             "createdAt": "2022-09-09T16:23:05.566Z"
+        },
+        {
+            "id": 6,
+            "description": "Sorteio - Lotofácil",
+            "type": "receipt",
+            "category": "Loteria",
+            "price": 50000,
+            "createdAt": "2022-09-01T16:23:05.566Z"
         }
     ]
 }
