@@ -6,6 +6,7 @@ import * as z from 'zod'
 import { MagnifyingGlass } from 'phosphor-react'
 // Styles //
 import { SearchFormContainer } from './styles'
+import { useTransaction } from '../../hooks/useTransaction'
 
 // SCHEMA //
 const searchFormSchema = z.object({
@@ -15,6 +16,7 @@ const searchFormSchema = z.object({
 type SearchFormInputs = z.infer<typeof searchFormSchema>
 
 export function SearchForm() {
+  const { fetchTransactions } = useTransaction()
   const {
     register,
     handleSubmit,
@@ -24,7 +26,7 @@ export function SearchForm() {
   })
 
   async function handleSearchTransactions(data: SearchFormInputs) {
-    console.log(data)
+    await fetchTransactions(data.query)
   }
 
   return (

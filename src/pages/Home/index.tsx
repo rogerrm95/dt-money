@@ -15,10 +15,10 @@ import {
 import { dateFormatter, priceFormatter } from '../../utils/formatter'
 
 export function Home() {
-  const { transactions, getAllTransactions } = useTransaction()
+  const { transactions, fetchTransactions } = useTransaction()
 
   useEffect(() => {
-    getAllTransactions()
+    fetchTransactions()
   }, [])
 
   return (
