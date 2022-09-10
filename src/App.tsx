@@ -1,7 +1,10 @@
+// Contexts //
 import { ThemeProvider } from 'styled-components'
-import { defaultTheme } from './styles/themes/default'
+import { TransactionProvider } from './contexts/TransactionContext'
 // Page //
 import { Home } from './pages/Home'
+// Styles //
+import { defaultTheme } from './styles/themes/default'
 import { GlobalStyled } from './styles/global'
 
 function App() {
@@ -9,7 +12,9 @@ function App() {
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyled />
 
-      <Home />
+      <TransactionProvider>
+        <Home />
+      </TransactionProvider>
     </ThemeProvider>
   )
 }

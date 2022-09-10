@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 // Libs //
 import { format } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
@@ -14,6 +14,7 @@ import {
   TransactionsTable,
   TableRow,
 } from './styles'
+import { useTransaction } from '../../hooks/useTransaction'
 
 // TEMPORÁRIO //
 // const tempValues = {
@@ -31,25 +32,8 @@ import {
 //   type: 'removal',
 // }
 
-interface Transaction {
-  id: number
-  description: string
-  category: string
-  price: number
-  createdAt: string
-  type: 'receipt' | 'removal'
-}
-
 export function Home() {
-  const [transactions, setTransaction] = useState<Transaction[]>([])
-
-  // GET - all transactions //
-  async function getAllTransactions() {
-    const response = await fetch('http://localhost:3334/transactions')
-    const data = await response.json()
-
-    setTransaction(data)
-  }
+  const { transactions, getAllTransactions } = useTransaction()
 
   useEffect(() => {
     getAllTransactions()
