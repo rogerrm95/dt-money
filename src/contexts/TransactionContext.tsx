@@ -14,7 +14,7 @@ type Transaction = {
 }
 
 interface TransactionContextProps {
-  transactions: Transaction[] | []
+  transactions: Transaction[]
   getAllTransactions: () => Promise<void>
 }
 
