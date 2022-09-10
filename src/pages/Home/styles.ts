@@ -93,6 +93,7 @@ export const TableRow = styled.tr<TableRowProps>`
     &:nth-child(2) {
       width: 25%;
       color: ${(props) => colorsTypeOfTransation[props.variant]};
+      text-align: center;
     }
 
     // Data //

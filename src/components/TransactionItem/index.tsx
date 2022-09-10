@@ -1,5 +1,6 @@
 // Icons //
 import { CalendarBlank, TagSimple } from 'phosphor-react'
+import { dateFormatter, priceFormatter } from '../../utils/formatter'
 // Styles //
 import { TransactionContainer } from './styles'
 
@@ -23,7 +24,7 @@ export function TransactionItem({
       <p>
         {name}
         <br />
-        <strong>R$ {price}</strong>
+        <strong>{priceFormatter.format(price)}</strong>
       </p>
 
       <footer>
@@ -32,7 +33,7 @@ export function TransactionItem({
         </span>
 
         <span>
-          <CalendarBlank size={16} /> {date}
+          <CalendarBlank size={16} /> {dateFormatter.format(new Date(date))}
         </span>
       </footer>
     </TransactionContainer>

@@ -1,7 +1,5 @@
 import { useEffect } from 'react'
-// Libs //
-import { format } from 'date-fns'
-import { ptBR } from 'date-fns/locale'
+import { useTransaction } from '../../hooks/useTransaction'
 // Components //
 import { Header } from '../../components/Header'
 import { SearchForm } from '../../components/SearchForm'
@@ -14,23 +12,7 @@ import {
   TransactionsTable,
   TableRow,
 } from './styles'
-import { useTransaction } from '../../hooks/useTransaction'
-
-// TEMPORÁRIO //
-// const tempValues = {
-//   amountToReceveid: Number(17400).toLocaleString('pt-BR', {
-//     currency: 'BRL',
-//     style: 'currency',
-//     minimumFractionDigits: 2,
-//   }),
-//   amountToRemoval: Number(5000).toLocaleString('pt-BR', {
-//     currency: 'BRL',
-//     style: 'currency',
-//     minimumFractionDigits: 2,
-//   }),
-//   lastUpdatedAt: format(new Date(), "dd 'de' MMM", { locale: ptBR }),
-//   type: 'removal',
-// }
+import { dateFormatter, priceFormatter } from '../../utils/formatter'
 
 export function Home() {
   const { transactions, getAllTransactions } = useTransaction()
@@ -73,9 +55,14 @@ export function Home() {
               {transactions.map((transaction) => (
                 <TableRow key={transaction.id} variant={transaction.type}>
                   <td>{transaction.description}</td>
-                  <td>R$ {transaction.price}</td>
+                  <td>
+                    {transaction.type === 'removal' && '- '}
+                    {priceFormatter.format(transaction.price)}
+                  </td>
                   <td>{transaction.category}</td>
-                  <td>{transaction.createdAt}</td>
+                  <td>
+                    {dateFormatter.format(new Date(transaction.createdAt))}
+                  </td>
                 </TableRow>
               ))}
             </tbody>
