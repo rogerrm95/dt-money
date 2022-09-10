@@ -1,31 +1,11 @@
 import { ArrowCircleDown, ArrowCircleUp, CurrencyDollar } from 'phosphor-react'
-import { useTransaction } from '../../hooks/useTransaction'
+import { useSummary } from '../../hooks/useSummary'
 import { priceFormatter } from '../../utils/formatter'
 // Styles //
 import { SummaryCard, SummaryContainer } from './styles'
 
 export function Summary() {
-  const { transactions } = useTransaction()
-
-  // Calcula os valores de ENTRADA | SAÍDA | SALDO //
-  const summary = transactions.reduce(
-    (acc, transaction) => {
-      if (transaction.type === 'receipt') {
-        acc.receipt += transaction.price
-        acc.total += transaction.price
-      } else {
-        acc.removal += transaction.price
-        acc.total += -transaction.price
-      }
-
-      return acc
-    },
-    {
-      receipt: 0,
-      removal: 0,
-      total: 0,
-    },
-  )
+  const summary = useSummary()
 
   return (
     <SummaryContainer>
@@ -54,7 +34,7 @@ export function Summary() {
       </SummaryCard>
 
       {/* Saldo */}
-      <SummaryCard variant={summary.total > 0 ? 'green' : 'red'}>
+      <SummaryCard variant={summary.total < 0 ? 'red' : 'green'}>
         <header>
           <span>Saldo</span>
           <CurrencyDollar size={32} color="#FFF" />
