@@ -1,52 +1,44 @@
 {
-    "transactions": [
-        {
-            "id": 1,
-            "description": "Site Coffe Delivery",
-            "type": "receipt",
-            "category": "Vendas",
-            "price": 7500,
-            "createdAt": "2022-09-10T16:23:05.566Z"
-        },
-        {
-            "id": 2,
-            "description": "Compra da PCX",
-            "type": "removal",
-            "category": "Veículo",
-            "price": 19800,
-            "createdAt": "2022-08-15T16:23:05.566Z"
-        },
-        {
-            "id": 3,
-            "description": "Compra Cadeira Gamer - Amazon",
-            "type": "removal",
-            "category": "Escritório",
-            "price": 1100,
-            "createdAt": "2022-08-30T16:23:05.566Z"
-        },
-        {
-            "id": 4,
-            "description": "Recebimento do salário",
-            "type": "receipt",
-            "category": "Salário",
-            "price": 4500,
-            "createdAt": "2022-09-05T16:23:05.566Z"
-        },
-        {
-            "id": 5,
-            "description": "Alberto - Empréstimo",
-            "type": "removal",
-            "category": "Empréstimo",
-            "price": 1500,
-            "createdAt": "2022-09-09T16:23:05.566Z"
-        },
-        {
-            "id": 6,
-            "description": "Sorteio - Lotofácil",
-            "type": "receipt",
-            "category": "Loteria",
-            "price": 50000,
-            "createdAt": "2022-09-01T16:23:05.566Z"
-        }
-    ]
+  "transactions": [
+    {
+      "id": 1,
+      "description": "Site Coffe Delivery",
+      "type": "receipt",
+      "category": "Vendas",
+      "price": 7500,
+      "createdAt": "2022-09-10T16:23:05.566Z"
+    },
+    {
+      "id": 2,
+      "description": "Compra da PCX",
+      "type": "removal",
+      "category": "Veículo",
+      "price": 19800,
+      "createdAt": "2022-08-15T16:23:05.566Z"
+    },
+    {
+      "id": 3,
+      "description": "Compra Cadeira Gamer - Amazon",
+      "type": "removal",
+      "category": "Escritório",
+      "price": 1100,
+      "createdAt": "2022-08-30T16:23:05.566Z"
+    },
+    {
+      "id": 4,
+      "description": "Recebimento do salário",
+      "type": "receipt",
+      "category": "Salário",
+      "price": 4500,
+      "createdAt": "2022-09-05T16:23:05.566Z"
+    },
+    {
+      "id": 5,
+      "description": "Alberto - Empréstimo",
+      "type": "removal",
+      "category": "Empréstimo",
+      "price": 1500,
+      "createdAt": "2022-09-09T16:23:05.566Z"
+    }
+  ]
 }

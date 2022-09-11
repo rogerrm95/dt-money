@@ -3,6 +3,8 @@ import * as Modal from '@radix-ui/react-dialog' // Acessibilidade //
 import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm, Controller } from 'react-hook-form'
+// Hooks //
+import { useTransaction } from '../../hooks/useTransaction'
 // Icons //
 import { ArrowCircleDown, ArrowCircleUp, X } from 'phosphor-react'
 // Styles //
@@ -25,6 +27,7 @@ const newTransactionFormSchema = z.object({
 type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>
 
 export function NewTransactionModal() {
+  const { createTransaction } = useTransaction()
   const {
     /* 
     Quando há necessidade de incluir uma informação no formulário que não venha de um elemento nativo
@@ -34,12 +37,22 @@ export function NewTransactionModal() {
     register,
     handleSubmit,
     formState: { isSubmitting },
+    reset,
   } = useForm<NewTransactionFormInputs>({
     resolver: zodResolver(newTransactionFormSchema),
   })
 
   async function handleCreateNewTransaction(data: NewTransactionFormInputs) {
-    console.log(data)
+    const { description, category, price, type } = data
+
+    await createTransaction({
+      description,
+      category,
+      price,
+      type,
+    })
+
+    reset()
   }
 
   return (
