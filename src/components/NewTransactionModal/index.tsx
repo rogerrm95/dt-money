@@ -21,7 +21,7 @@ const newTransactionFormSchema = z.object({
   description: z.string(),
   price: z.number(),
   category: z.string(),
-  type: z.enum(['receipt', 'removal']), // enumeração - enum //
+  type: z.enum(['receipt', 'removal']),
 })
 
 type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>
@@ -29,10 +29,6 @@ type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>
 export function NewTransactionModal() {
   const { createTransaction } = useTransaction()
   const {
-    /* 
-    Quando há necessidade de incluir uma informação no formulário que não venha de um elemento nativo
-    Utilizamos o "control" do useForm() 
-    */
     control,
     register,
     handleSubmit,

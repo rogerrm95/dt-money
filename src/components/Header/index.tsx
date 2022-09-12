@@ -3,6 +3,7 @@
 import * as Modal from '@radix-ui/react-dialog'
 // Logo //
 import LogoDTMoney from '../../assets/logo-dtmoney.png'
+// Components //
 import { NewTransactionModal } from '../NewTransactionModal'
 // Styles //
 import { HeaderContainer, TransactionButton } from './styles'

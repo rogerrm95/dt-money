@@ -1,7 +1,5 @@
 import { useTransaction } from './useTransaction'
 import { useMemo } from 'react'
-// useMemo = memorizar o valores computados (variáveis) a fim de
-// evitar uma nova renderização (re-cálculo) //
 
 export const useSummary = () => {
   const { transactions } = useTransaction()

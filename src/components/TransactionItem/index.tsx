@@ -1,5 +1,6 @@
 // Icons //
 import { CalendarBlank, TagSimple } from 'phosphor-react'
+// Utils //
 import { dateFormatter, priceFormatter } from '../../utils/formatter'
 // Styles //
 import { TransactionContainer } from './styles'

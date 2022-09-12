@@ -5,6 +5,8 @@ import { Header } from '../../components/Header'
 import { SearchForm } from '../../components/SearchForm'
 import { Summary } from '../../components/Summary'
 import { TransactionItem } from '../../components/TransactionItem'
+// Utils //
+import { dateFormatter, priceFormatter } from '../../utils/formatter'
 // Styles //
 import {
   HomeContainer,
@@ -12,7 +14,6 @@ import {
   TransactionsTable,
   TableRow,
 } from './styles'
-import { dateFormatter, priceFormatter } from '../../utils/formatter'
 
 export function Home() {
   const { transactions, fetchTransactions } = useTransaction()
